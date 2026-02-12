@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="bg">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Български медиен bias chart (Ad Fontes стил)</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <h1>Карта на българските медии (2025)</h1>
+      <p>
+        Интерактивна визуализация в стил <strong>Ad Fontes</strong>, базирана на
+        доклада „Проучване на български медии: Точност и пристрастия“.
+      </p>
+      <a class="report-link" href="./Проучване%20на%20български%20медии_%20Точност%20и%20пристрастия%20(1).odt">Отвори доклада (.odt)</a>
+    </header>
+
+    <main>
+      <section class="controls" aria-label="Филтри">
+        <label>
+          Търсене на медия
+          <input id="searchInput" type="text" placeholder="напр. BNR, Dnevnik, Blitz" />
+        </label>
+
+        <label>
+          Тип медия
+          <select id="typeFilter">
+            <option value="all">Всички</option>
+          </select>
+        </label>
+
+        <label>
+          Оценка по надеждност
+          <select id="reliabilityFilter">
+            <option value="all">Всички</option>
+            <option value="high">Висока (50+)</option>
+            <option value="mixed">Смесена (25-49)</option>
+            <option value="low">Ниска (0-24)</option>
+          </select>
+        </label>
+      </section>
+
+      <section class="chart-panel">
+        <div class="legend">
+          <span><i class="dot dot-liberal"></i> Либерален / евроатлантически</span>
+          <span><i class="dot dot-center"></i> Център / неутрално</span>
+          <span><i class="dot dot-conservative"></i> Консервативно / дясно</span>
+          <span><i class="dot dot-prorussian"></i> Про-руски / дезинформация</span>
+        </div>
+
+        <div class="chart-wrapper">
+          <svg id="chart" viewBox="0 0 980 560" role="img" aria-label="Графика за медийна надеждност и пристрастия"></svg>
+        </div>
+      </section>
+
+      <section class="details" id="detailsPanel">
+        <h2>Избери медия от графиката</h2>
+        <p>Щракни върху точка, за да видиш детайли за собственост, тип и бележки.</p>
+      </section>
+    </main>
+
+    <footer>
+      <small>
+        Ос X: пристрастие (ляво → център → дясно / про-руско). Ос Y: надеждност (0-64).
+      </small>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

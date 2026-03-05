@@ -1,0 +1,133 @@
+:root {
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --line: #d9dfeb;
+  --text: #1d2430;
+  --muted: #5f6b7f;
+  --accent: #2757ff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.hero {
+  padding: 2rem 1rem 1rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.hero h1 { margin: 0 0 0.5rem; }
+.hero p { margin: 0 0 0.75rem; color: var(--muted); }
+.report-link { color: var(--accent); text-decoration: none; font-weight: 600; }
+
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem 1.5rem;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.75rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.9rem;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+input, select {
+  border: 1px solid #c7d0e0;
+  border-radius: 8px;
+  padding: 0.5rem 0.6rem;
+  font-size: 0.95rem;
+}
+
+.chart-panel {
+  margin-top: 1rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 0.35rem;
+}
+
+.dot-liberal { background: #2f7bf6; }
+.dot-center { background: #58657f; }
+.dot-conservative { background: #f29f27; }
+.dot-prorussian { background: #d93025; }
+
+.chart-wrapper {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fcfdff;
+}
+
+#chart { width: 100%; height: auto; display: block; }
+
+.axis-label {
+  font-size: 13px;
+  fill: #4e5a71;
+  font-weight: 600;
+}
+
+.grid-label {
+  font-size: 12px;
+  fill: #68748b;
+}
+
+.point { cursor: pointer; transition: transform .12s ease; }
+.point:hover { transform: scale(1.18); }
+
+.point.active {
+  stroke: #111;
+  stroke-width: 2;
+}
+
+.details {
+  margin-top: 1rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.details h2 { margin: 0 0 0.4rem; }
+.details p { margin: 0.2rem 0; color: #334056; }
+
+footer {
+  text-align: center;
+  padding: 0.75rem 1rem 1.5rem;
+  color: var(--muted);
+}

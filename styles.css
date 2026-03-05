@@ -107,6 +107,28 @@ input, select {
   fill: #68748b;
 }
 
+.point {
+  cursor: pointer;
+  transition: r .12s ease, stroke-width .12s ease, opacity .12s ease;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.point:hover {
+  opacity: 0.92;
+  stroke: #1d2430;
+  stroke-width: 1.6;
+}
+
+.point.active {
+  stroke: #111;
+  stroke-width: 2.4;
+}
+
+.count-label {
+  margin: 0.25rem 0 0.75rem;
+  color: var(--muted);
+  font-size: 0.9rem;
 .point { cursor: pointer; transition: transform .12s ease; }
 .point:hover { transform: scale(1.18); }
 

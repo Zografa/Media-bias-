@@ -56,6 +56,9 @@ const searchInput = document.getElementById("searchInput");
 const typeFilter = document.getElementById("typeFilter");
 const reliabilityFilter = document.getElementById("reliabilityFilter");
 const detailsPanel = document.getElementById("detailsPanel");
+const countLabel = document.getElementById("countLabel");
+
+let selectedRank = null;
 
 const width = 980;
 const height = 560;
@@ -191,6 +194,7 @@ function filteredData() {
 
 function drawPoints() {
   const data = filteredData();
+  countLabel.textContent = `Показани медии: ${data.length} от ${mediaData.length}`;
 
   data.forEach((item) => {
     const cx = xScale(getBiasValue(item.bias));
@@ -210,11 +214,15 @@ function drawPoints() {
     circle.append(title);
 
     circle.addEventListener("click", () => {
+      selectedRank = item.rank;
       document.querySelectorAll(".point.active").forEach((p) => p.classList.remove("active"));
       circle.classList.add("active");
       showDetails(item);
     });
 
+    if (selectedRank === item.rank) {
+      circle.classList.add("active");
+    }
     svg.append(circle);
   });
 }
@@ -475,6 +483,12 @@ function populateTypeFilter() {
 function render() {
   drawBase();
   drawPoints();
+
+  const visible = filteredData();
+  if (selectedRank !== null && !visible.some((item) => item.rank === selectedRank)) {
+    selectedRank = null;
+    detailsPanel.innerHTML = `<h2>Избери медия от графиката</h2><p>Щракни върху точка, за да видиш детайли за собственост, тип и бележки.</p>`;
+  }
 }
 
 populateTypeFilter();
